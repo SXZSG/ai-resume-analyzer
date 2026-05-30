@@ -1,0 +1,15 @@
+岗位名称：Python 后端工程师 / AI 应用开发工程师
+
+岗位职责：
+1. 负责招聘场景下的简历解析、候选人画像和岗位匹配系统开发。
+2. 设计并实现 RESTful API，支持前端上传 PDF 简历并返回结构化 JSON。
+3. 对接 OpenAI-compatible 大模型接口，完成简历信息抽取、岗位匹配分析和总结建议。
+4. 参与服务部署、性能优化、日志排查和基础缓存能力建设。
+
+任职要求：
+1. 熟悉 Python，掌握 FastAPI、Flask 或 Django 任一后端框架。
+2. 熟悉 PDF 文本解析，有 PyMuPDF、OCR 或文档处理经验优先。
+3. 熟悉 SQL、MySQL、Redis、Docker、Linux、Git。
+4. 理解 RESTful API 设计，具备良好的工程结构和测试意识。
+5. 了解 NLP、LLM、Prompt Engineering 或机器学习相关知识优先。
+6. 本科及以上学历，计算机相关专业优先。
