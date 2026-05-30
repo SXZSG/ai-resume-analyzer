@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI 智能简历分析系统</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace">
+        <div class="panel input-panel">
+          <div class="brand-row">
+            <div>
+              <p class="eyebrow">AI Resume Analyzer</p>
+              <h1>智能简历分析系统</h1>
+            </div>
+            <span id="statusPill" class="status-pill">待分析</span>
+          </div>
+
+          <label class="field-label" for="apiBase">API 地址</label>
+          <div class="api-row">
+            <input id="apiBase" type="url" value="http://127.0.0.1:8000" />
+            <button id="saveApi" class="icon-button" type="button" title="保存 API 地址">保存</button>
+          </div>
+
+          <label class="upload-box" for="resumeFile">
+            <span class="upload-icon">PDF</span>
+            <strong id="fileName">选择 PDF 简历</strong>
+            <small>支持单个 PDF 文件，建议使用脱敏测试简历</small>
+          </label>
+          <input id="resumeFile" type="file" accept="application/pdf,.pdf" />
+
+          <label class="field-label" for="jobDescription">岗位 JD</label>
+          <textarea
+            id="jobDescription"
+            placeholder="粘贴岗位描述，例如：需要 Python、FastAPI、Docker、MySQL、Redis 经验，熟悉 RESTful API 设计..."
+          ></textarea>
+
+          <button id="analyzeBtn" class="primary-button" type="button">
+            <span class="button-icon">▶</span>
+            开始分析
+          </button>
+
+          <p id="message" class="message"></p>
+        </div>
+
+        <div class="results">
+          <section class="score-band">
+            <div>
+              <p class="eyebrow">Match Score</p>
+              <h2 id="overallScore">--</h2>
+              <p id="summaryText">上传简历并填写 JD 后展示分析结果。</p>
+            </div>
+            <div class="score-grid">
+              <div class="score-card">
+                <span>技能</span>
+                <strong id="skillScore">--</strong>
+              </div>
+              <div class="score-card">
+                <span>经验</span>
+                <strong id="experienceScore">--</strong>
+              </div>
+              <div class="score-card">
+                <span>学历</span>
+                <strong id="educationScore">--</strong>
+              </div>
+            </div>
+          </section>
+
+          <section class="result-grid">
+            <article class="panel result-card">
+              <h3>候选人信息</h3>
+              <dl class="info-list">
+                <div><dt>姓名</dt><dd id="name">--</dd></div>
+                <div><dt>电话</dt><dd id="phone">--</dd></div>
+                <div><dt>邮箱</dt><dd id="email">--</dd></div>
+                <div><dt>地址</dt><dd id="address">--</dd></div>
+                <div><dt>求职意向</dt><dd id="position">--</dd></div>
+              </dl>
+            </article>
+
+            <article class="panel result-card">
+              <h3>背景概览</h3>
+              <p class="muted">教育</p>
+              <p id="education">--</p>
+              <p class="muted">工作年限</p>
+              <p id="workYears">--</p>
+              <p class="muted">技能</p>
+              <div id="skills" class="tag-list"></div>
+            </article>
+
+            <article class="panel result-card">
+              <h3>项目经历</h3>
+              <ul id="projects" class="compact-list"></ul>
+            </article>
+
+            <article class="panel result-card">
+              <h3>匹配关键词</h3>
+              <p class="muted">已匹配</p>
+              <div id="matchedKeywords" class="tag-list positive"></div>
+              <p class="muted">缺失</p>
+              <div id="missingKeywords" class="tag-list warning"></div>
+            </article>
+
+            <article class="panel result-card wide">
+              <h3>建议与风险</h3>
+              <div class="two-column">
+                <div>
+                  <p class="muted">优势</p>
+                  <ul id="advantages" class="compact-list"></ul>
+                </div>
+                <div>
+                  <p class="muted">风险</p>
+                  <ul id="risks" class="compact-list"></ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel result-card wide">
+              <h3>原始 JSON</h3>
+              <pre id="jsonOutput">{}</pre>
+            </article>
+          </section>
+        </div>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
