@@ -4,7 +4,9 @@ from typing import Any, Dict, Optional
 from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from dotenv import load_dotenv
 
+load_dotenv()
 from cache import get_cache, make_cache_key, set_cache
 from llm_client import LLMClientError, analyze_match, extract_resume_info
 from parser import PDFParseError, extract_text_from_pdf
